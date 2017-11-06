@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface JYMapper {
 	public void insert(Object o);
 	public List<?> selectList(Object o);
-	public List<?> selectMap(Object o);
 	public Object selectOne (Object o);
 	public String count(Object o);
 	public void update (Object o);

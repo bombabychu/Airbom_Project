@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.airbom.domain.Gmap;
 import com.app.airbom.domain.Member;
 import com.app.airbom.domain.Reservation;
 import com.app.airbom.domain.Residence;
@@ -29,7 +28,6 @@ public class JYController {
 	@Autowired Reservation reservation;
 	@Autowired Residence residence;
 	@Autowired Member member;
-	@Autowired Gmap gmap;
 	
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value="/post/reservation"/*,method=RequestMethod.POST*/)
@@ -63,16 +61,7 @@ public class JYController {
 			}
 		}.execute(residence);
 	}
-	@RequestMapping("/get/map/list")
-	public @ResponseBody List<?> mapList(){
-		logger.info("*** JYController :: mapList {}","진입");
-		return new IListService() {
-			@Override
-			public List<?> execute(Object o) {
-				return jyMapper.selectMap(gmap);
-			}
-		}.execute(gmap);
-	}
+
 	@RequestMapping(value="/login"/*,method=RequestMethod.POST*/)
 	public @ResponseBody Map<?,?> login(/*@RequestBody Member member*/) {
 		logger.info("*** JYController :: login {}","진입");

@@ -26,10 +26,6 @@
 			#{solddays}
 		);
 	</insert>
-	
-	<select id="selectMap" resultType="com.app.airbom.domain.Gmap">
-			SELECT * FROM Gmap;
-	</select> 
 
 	<select id="selectList" resultType="com.app.airbom.domain.Residence">
 		SELECT member_id AS memberId,
